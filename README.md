@@ -11,6 +11,14 @@ npm run dev
 npm run dev -- --open
 ```
 
+Lint
+
+`npm run format`
+
+Format
+
+`npm run format`
+
 ## Building
 
 To create a production version of the setlist generator:
