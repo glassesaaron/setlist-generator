@@ -57,9 +57,20 @@
 	</select>
 	<ul>
 		{#each filteredSetlist as group}
-			{#each group as song}
-				<li>{song.title} {secondsToMinutes(song.length)}</li>
-			{/each}
+			{#if group.length > 1}
+				<li>
+					<b>Group</b>
+					<ul>
+						{#each group as song}
+							<li>{song.title} {secondsToMinutes(song.length)}</li>
+						{/each}
+					</ul>
+				</li>
+			{:else}
+				{#each group as song}
+					<li>{song.title} {secondsToMinutes(song.length)}</li>
+				{/each}
+			{/if}
 		{/each}
 	</ul>
 </div>
