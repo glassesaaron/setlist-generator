@@ -28,19 +28,23 @@
 		}
 		let usedSongs = new Set();
 		let setlistArray = [];
-		// TODO: n^3
+		let selectedTags = [];
 		for (let option of selectedOptions) {
-			for (let group of setlist) {
-				let newGroup = [];
-				for (let song of group) {
-					if (song.tags.indexOf(option.value) > -1 && !usedSongs.has(song)) {
+			selectedTags.push(option.value);
+		}
+		for (let group of setlist) {
+			let newGroup = [];
+			for (let song of group) {
+				for (let tag of song.tags) {
+					if (selectedTags.indexOf(tag) > -1 && !usedSongs.has(song)) {
 						newGroup.push(song);
 						usedSongs.add(song);
+						continue;
 					}
 				}
-				if (newGroup.length > 0) {
-					setlistArray.push(newGroup);
-				}
+			}
+			if (newGroup.length > 0) {
+				setlistArray.push(newGroup);
 			}
 		}
 		filteredSetlist = setlistArray;
