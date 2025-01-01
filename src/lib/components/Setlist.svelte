@@ -66,13 +66,13 @@
 					<b>Group</b>
 					<ul>
 						{#each group as song}
-							<li>{song.title} {secondsToMinutes(song.length)}</li>
+							<li>{song.title} {secondsToMinutes(song.length)} ({song.key})</li>
 						{/each}
 					</ul>
 				</li>
 			{:else}
 				{#each group as song}
-					<li>{song.title} {secondsToMinutes(song.length)}</li>
+					<li>{song.title} {secondsToMinutes(song.length)} ({song.key})</li>
 				{/each}
 			{/if}
 		{/each}
