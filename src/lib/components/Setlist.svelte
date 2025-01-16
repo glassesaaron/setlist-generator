@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	import { setlist } from '../data/setlist.js';
 
 	function secondsToMinutes(initialSeconds) {
@@ -49,6 +50,18 @@
 		}
 		filteredSetlist = setlistArray;
 	}
+
+	let songsLength = $state();
+	let setLength = $state(210);
+	let setNumber = $state(2);
+	let setBreakLength = $state(30);
+
+	$effect(() => {
+		songsLength =
+			setNumber === 0 || setBreakLength === 0
+				? setLength
+				: Math.floor(setLength - (setNumber - 1) * setBreakLength);
+	});
 </script>
 
 <div id="container">
@@ -77,11 +90,63 @@
 			{/if}
 		{/each}
 	</ul>
+	<div id="timeContainer">
+		<form>
+			<label for="setLength">Total Set Time</label>
+			<select name="setLength" bind:value={setLength}>
+				<option value={15}>15 minutes</option>
+				<option value={30}>30 minutes</option>
+				<option value={45}>15 minutes</option>
+				<option value={60}>1 hour</option>
+				<option value={75}>1 hour 15 minutes</option>
+				<option value={90}>1 hour 30 minutes</option>
+				<option value={105}>1 hour 45 minutes</option>
+				<option value={120}>2 hours</option>
+				<option value={135}>2 hours 15 minutes</option>
+				<option value={150}>2 hours 30 minutes</option>
+				<option value={165}>2 hours 45 minutes</option>
+				<option value={180}>3 hours</option>
+				<option value={195}>3 hours 15 minutes</option>
+				<option value={210}>3 hours 30 minutes</option>
+				<option value={225}>3 hours 45 minutes</option>
+				<option value={240}>4 hours</option>
+			</select>
+			<br />
+			<label for="setNumber">Total Number of Sets</label>
+			<select name="setNumber" bind:value={setNumber}>
+				<option value={1}>1</option>
+				<option value={2}>2</option>
+				<option value={3}>3</option>
+				<option value={4}>4</option>
+				<option value={5}>5</option>
+			</select>
+			<br />
+			<label for="setBreakLength">Break Time Between Sets</label>
+			<select name="setBreakLength" bind:value={setBreakLength}>
+				<option value={0}>0 minutes (no breaks)</option>
+				<option value={15}>15 minutes</option>
+				<option value={30}>30 minutes</option>
+				<option value={45}>45 minutes</option>
+				<option value={60}>60 minutes</option>
+			</select>
+		</form>
+	</div>
+	{#if songsLength}
+		<div>
+			<h2>Total Set Length:</h2>
+			<h3>{songsLength} minutes</h3>
+		</div>
+	{/if}
 </div>
 
 <style>
 	#container {
 		display: flex;
+		gap: 1rem;
 		height: 100%;
+	}
+
+	#timeContainer {
+		padding-top: 1rem;
 	}
 </style>
