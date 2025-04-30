@@ -1,6 +1,12 @@
 <script>
 	import { onMount } from 'svelte';
-	import { rawSetlist } from '../data/setlist.js';
+	import { setlist as rawSetlist} from '../data/setlist.js';
+
+    // massage data, remove empty songs
+    const fullSetlist = [];
+    for(let group of rawSetlist){
+        fullSetlist.push(group.filter(x=>x.songLength>0));
+    }
 
 	function secondsToMinutes(initialSeconds) {
 		const mins = Math.floor(initialSeconds / 60);
@@ -13,11 +19,11 @@
 		return Math.floor(Math.random() * (max - min + 1) + min);
 	}
 
-	let filteredSetlist = $state(rawSetlist);
+	let filteredSetlist = $state(fullSetlist);
 
 	const tags = new Set();
 	tags.add('');
-	for (let group of rawSetlist) {
+	for (let group of fullSetlist) {
 		for (let song of group) {
 			for (let tag of song.tags) {
 				tags.add(tag);
@@ -31,7 +37,7 @@
 			selectedOptions.length === 0 ||
 			(selectedOptions.length === 1 && selectedOptions[0].value === '')
 		) {
-			filteredSetlist = [...rawSetlist];
+			filteredSetlist = [...fullSetlist];
 			return;
 		}
 		let usedSongs = new Set();
@@ -40,7 +46,7 @@
 		for (let option of selectedOptions) {
 			selectedTags.push(option.value);
 		}
-		for (let group of rawSetlist) {
+		for (let group of fullSetlist) {
 			let newGroup = [];
 			for (let song of group) {
 				for (let tag of song.tags) {

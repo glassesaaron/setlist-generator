@@ -4,7 +4,7 @@ function timeToSeconds(time) {
 	return parseInt(minutes, 10) + parseInt(timeSplit[1], 10);
 }
 
-export const rawSetlist = [
+export const setlist = [
 	[
 		{
 			title: 'Enter Sandman',
@@ -17,7 +17,7 @@ export const rawSetlist = [
 			title: 'Tom Sawyer',
 			artist: 'Rush',
 			songLength: timeToSeconds('4:37'),
-			tags: ['rock', 'vintage', '80s'],
+			tags: ['rock', 'heavy metal', '80s'],
 			key: 'E'
 		}
 	],
@@ -64,6 +64,159 @@ export const rawSetlist = [
 			songLength: timeToSeconds('4:09'),
 			tags: ['rock', 'basic', 'ladies night', '90s'],
 			key: 'E'
+		}
+	],
+	[
+		{
+			title: 'Metal Health (Bang Your Head)',
+			artist: 'Quiet Riot',
+			songLength: timeToSeconds('5:16'),
+			tags: ['rock', 'heavy metal', '80s'],
+			key: 'D'
+		}
+	],
+	[
+		{
+			title: 'Cochise',
+			artist: 'Audioslave',
+			songLength: timeToSeconds('3:42'),
+			tags: ['rock', '2000s'],
+			key: 'A'
+		}
+	],
+	[
+		{
+			title: 'Kickstart My Heart',
+			artist: 'Motley Crue',
+			songLength: timeToSeconds('4:44'),
+			tags: ['rock', 'hair metal', '80s'],
+			key: 'G'
+		}
+	],
+	[
+		{
+			title: 'Fight For Your Right',
+			artist: 'Beastie Boys',
+			songLength: timeToSeconds('3:29'),
+			tags: ['rap', '80s', 'basic'],
+			key: 'Ab'
+		}
+	],
+	[
+		{
+			title: 'Panama',
+			artist: 'Van Halen',
+			songLength: timeToSeconds('3:30'),
+			tags: ['rock', 'heavy metal', '80s'],
+			key: 'Ab'
+		}
+	],
+	[
+		{
+			title: 'Look What The Cat Dragged In',
+			artist: 'Poison',
+			songLength: timeToSeconds('3:11'),
+			tags: ['rock', 'hair metal', '80s'],
+			key: 'Eb'
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: ''
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: ''
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: ''
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: ''
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: ''
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: ''
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: ''
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: ''
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: ''
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: ''
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: ''
 		}
 	]
 ];
