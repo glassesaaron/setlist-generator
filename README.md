@@ -1,5 +1,9 @@
 # setlist-generator
 
+## Preview a live app
+
+https://glassesaaron.github.io/setlist-generator/
+
 ## Developing
 
 Start a development server:
@@ -25,6 +29,12 @@ To create a production version of the setlist generator:
 
 ```bash
 npm run build
+```
+
+To build a version compatible with Github Pages:
+
+```bash
+npm run build && cp .svelte-kit/output/prerendered/pages/index.html ./
 ```
 
 You can preview the production build with `npm run preview`
