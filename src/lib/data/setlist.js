@@ -98,7 +98,7 @@ export const setlist = [
 			title: 'Fight For Your Right',
 			artist: 'Beastie Boys',
 			songLength: timeToSeconds('3:29'),
-			tags: ['rap', '80s', 'basic'],
+			tags: ['rock', 'rap', '80s', 'basic'],
 			key: 'Ab'
 		}
 	],
@@ -122,38 +122,38 @@ export const setlist = [
 	],
 	[
 		{
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: ''
+			title: 'Heartbreaker',
+			artist: 'Pat Benatar',
+			songLength: timeToSeconds('3:29'),
+			tags: ['rock', 'basic', '70s'],
+			key: 'E'
 		}
 	],
 	[
 		{
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: ''
+			title: 'Baracuda',
+			artist: 'Heart',
+			songLength: timeToSeconds('4:22'),
+			tags: ['rock', 'basic', '70s'],
+			key: 'E'
 		}
 	],
 	[
 		{
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: ''
+			title: 'Seven Nation Army',
+			artist: 'White Stripes',
+			songLength: timeToSeconds('3:52'),
+			tags: ['rock', 'basic', '2000s'],
+			key: 'E'
 		}
 	],
 	[
 		{
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: ''
+			title: 'Vasoline',
+			artist: 'Stone Temple Pilots',
+			songLength: timeToSeconds('2:55'),
+			tags: ['rock', 'grunge', 'basic', '90s', '2000s'],
+			key: 'A#'
 		}
 	],
 	[

@@ -1,12 +1,31 @@
 <script>
+	import { flip } from 'svelte/animate';
+	import { dndzone } from 'svelte-dnd-action';
 	import { onMount } from 'svelte';
-	import { setlist as rawSetlist} from '../data/setlist.js';
+	import { setlist as rawSetlist, setlist } from '../data/setlist.js';
 
-    // massage data, remove empty songs
-    const fullSetlist = [];
-    for(let group of rawSetlist){
-        fullSetlist.push(group.filter(x=>x.songLength>0));
-    }
+	// drag and drop
+	const flipDurationMs = 300;
+	function handleDndConsider(index, e) {
+		console.log(index, e);
+		finalSetlists[index] = e.detail.items;
+	}
+	function handleDndFinalize(index, e) {
+		finalSetlists[index] = e.detail.items;
+	}
+
+	// massage data, remove empty songs
+	// add generic ids
+	const fullSetlist = [];
+	let id = 1;
+	for (let group of rawSetlist) {
+		let newGroup = group.filter((x) => x.songLength > 0);
+		for (let song of newGroup) {
+			song.id = id;
+			id++;
+		}
+		fullSetlist.push(newGroup);
+	}
 
 	function secondsToMinutes(initialSeconds) {
 		const mins = Math.floor(initialSeconds / 60);
@@ -106,13 +125,21 @@
 		if (outOfSongs) {
 			alert('You do not have enough songs to fill your desired set length.');
 		}
-		finalSetlists = setlists;
+		finalSetlists = [];
+		for (let currentSet of setlists) {
+			let flatSet = [];
+			for (let currentGroup of currentSet) {
+				for (let currentSong of currentGroup) {
+					flatSet.push(currentSong);
+				}
+			}
+			finalSetlists.push(flatSet);
+		}
+		finalSetlists = finalSetlists;
 	}
 
 	function getSetTitle(setlist, index) {
-		const setLength = secondsToMinutes(
-			setlist.reduce((a, c) => a + c.reduce((a, c) => a + c.songLength, 0), 0)
-		);
+		const setLength = secondsToMinutes(setlist.reduce((a, c) => a + c.songLength, 0));
 		return `Set ${index + 1} ${setLength}`;
 	}
 </script>
@@ -210,15 +237,17 @@
 	</div>
 </div>
 <div id="bodyContainer">
-	{#each finalSetlists as setlist, index}
-		<h1>{getSetTitle(setlist, index)}</h1>
-		<ul>
-			{#each setlist as group}
-				{#each group as song}
-					<li>{song.title} ({song.key})</li>
-				{/each}
+	{#each finalSetlists as items, index}
+		<h1>{getSetTitle(items, index)}</h1>
+		<section
+			use:dndzone={{ items, flipDurationMs }}
+			onconsider={(e) => handleDndConsider(index, e)}
+			onfinalize={(e) => handleDndFinalize(index, e)}
+		>
+			{#each items as song (song.id)}
+				<div animate:flip={{ duration: flipDurationMs }}>{song.title} ({song.key})</div>
 			{/each}
-		</ul>
+		</section>
 	{/each}
 </div>
 
@@ -227,7 +256,9 @@
 		display: flex;
 		gap: 1rem;
 		height: 60%;
+		min-height: 35rem;
 		padding-bottom: 1rem;
+		overflow-y: scroll;
 	}
 
 	#timeContainer {
@@ -246,5 +277,11 @@
 		height: 100%;
 		border-top: 1px solid #000000;
 		padding: 1rem 2rem;
+	}
+
+	section {
+		width: 100%;
+		padding: 0.3em;
+		border: 1px solid black;
 	}
 </style>
