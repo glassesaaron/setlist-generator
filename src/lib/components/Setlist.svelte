@@ -7,7 +7,6 @@
 	// drag and drop
 	const flipDurationMs = 300;
 	function handleDndConsider(index, e) {
-		console.log(index, e);
 		finalSetlists[index] = e.detail.items;
 	}
 	function handleDndFinalize(index, e) {
@@ -83,6 +82,7 @@
 		filteredSetlist = setlistArray;
 	}
 
+	let showSongKey = $state(true);
 	let songsLength = $state();
 	let setLength = $state(210);
 	let setNumber = $state(2);
@@ -159,13 +159,13 @@
 					<b>Group</b>
 					<ul>
 						{#each group as song}
-							<li>{song.title} {secondsToMinutes(song.songLength)} ({song.key})</li>
+							<li>{song.title} {secondsToMinutes(song.songLength)} : {song.key} {#if song.drop !== 0}<b>({song.drop})</b>{/if}</li>
 						{/each}
 					</ul>
 				</li>
 			{:else}
 				{#each group as song}
-					<li>{song.title} {secondsToMinutes(song.songLength)} ({song.key})</li>
+					<li>{song.title} {secondsToMinutes(song.songLength)} : {song.key} {#if song.drop !== 0}<b>({song.drop})</b>{/if}</li>
 				{/each}
 			{/if}
 		{/each}
@@ -224,6 +224,11 @@
 				<option value={9}>9 minutes</option>
 				<option value={10}>10 minutes</option>
 			</select>
+			<br />
+			<label>
+				<input type="checkbox" bind:checked={showSongKey} />
+				Show Song Key?
+			</label>
 		</form>
 	</div>
 	{#if songsLength !== null}
@@ -245,7 +250,10 @@
 			onfinalize={(e) => handleDndFinalize(index, e)}
 		>
 			{#each items as song (song.id)}
-				<div animate:flip={{ duration: flipDurationMs }}>{song.title} ({song.key})</div>
+				<div animate:flip={{ duration: flipDurationMs }}>
+					{song.title}
+					{#if showSongKey}: {song.key}&nbsp;{/if}{#if song.drop !== 0}<b>({song.drop})</b>{/if}
+				</div>
 			{/each}
 		</section>
 	{/each}

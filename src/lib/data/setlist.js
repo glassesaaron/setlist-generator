@@ -6,19 +6,37 @@ function timeToSeconds(time) {
 
 export const setlist = [
 	[
+        {
+			title: 'Helter Skelter',
+			artist: 'Motley Crue',
+			songLength: timeToSeconds('3:12'),
+			tags: ['rock', 'heavy metal', 'hair metal', '80s'],
+			key: 'A',
+            drop: 0
+		},
 		{
 			title: 'Enter Sandman',
 			artist: 'Metallica',
 			songLength: timeToSeconds('5:32'),
 			tags: ['rock', 'metal', '90s'],
-			key: 'E'
+			key: 'E',
+            drop: 0
 		},
 		{
 			title: 'Tom Sawyer',
 			artist: 'Rush',
 			songLength: timeToSeconds('4:37'),
 			tags: ['rock', 'heavy metal', '80s'],
-			key: 'E'
+			key: 'E',
+            drop: 0
+		},
+		{
+			title: 'TNT',
+			artist: 'AC/DC',
+			songLength: timeToSeconds('3:35'),
+			tags: ['rock', '70s'],
+			key: 'A',
+            drop: 0
 		}
 	],
 	[
@@ -27,16 +45,18 @@ export const setlist = [
 			artist: 'Metallica',
 			songLength: timeToSeconds('5:25'),
 			tags: ['rock', 'metal', '90s'],
-			key: 'D'
+			key: 'D',
+            drop: -2
 		}
 	],
 	[
 		{
 			title: 'Cult of Personality',
-			artist: 'Rush',
+			artist: 'Living Colour',
 			songLength: timeToSeconds('4:55'),
 			tags: ['rock', '80s'],
-			key: 'E'
+			key: 'C',
+            drop: 0
 		}
 	],
 	[
@@ -45,7 +65,8 @@ export const setlist = [
 			artist: 'Green Day',
 			songLength: timeToSeconds('3:02'),
 			tags: ['rock', 'pop punk', 'punk', 'basic', '90s'],
-			key: 'Eb'
+			key: 'Eb',
+            drop: -1
 		}
 	],
 	[
@@ -54,7 +75,8 @@ export const setlist = [
 			artist: 'Nirvana',
 			songLength: timeToSeconds('5:02'),
 			tags: ['rock', 'grunge', 'basic', '90s'],
-			key: 'E'
+			key: 'E',
+            drop: 0
 		}
 	],
 	[
@@ -63,7 +85,8 @@ export const setlist = [
 			artist: 'Alanis Morissette',
 			songLength: timeToSeconds('4:09'),
 			tags: ['rock', 'basic', 'ladies night', '90s'],
-			key: 'E'
+			key: 'E',
+            drop: 0
 		}
 	],
 	[
@@ -72,7 +95,8 @@ export const setlist = [
 			artist: 'Quiet Riot',
 			songLength: timeToSeconds('5:16'),
 			tags: ['rock', 'heavy metal', '80s'],
-			key: 'D'
+			key: 'D',
+            drop: 0
 		}
 	],
 	[
@@ -81,7 +105,8 @@ export const setlist = [
 			artist: 'Audioslave',
 			songLength: timeToSeconds('3:42'),
 			tags: ['rock', '2000s'],
-			key: 'A'
+			key: 'A',
+            drop: 0
 		}
 	],
 	[
@@ -90,7 +115,8 @@ export const setlist = [
 			artist: 'Motley Crue',
 			songLength: timeToSeconds('4:44'),
 			tags: ['rock', 'hair metal', '80s'],
-			key: 'G'
+			key: 'G',
+            drop: -2
 		}
 	],
 	[
@@ -99,7 +125,8 @@ export const setlist = [
 			artist: 'Beastie Boys',
 			songLength: timeToSeconds('3:29'),
 			tags: ['rock', 'rap', '80s', 'basic'],
-			key: 'Ab'
+			key: 'Ab',
+            drop: -1
 		}
 	],
 	[
@@ -108,7 +135,8 @@ export const setlist = [
 			artist: 'Van Halen',
 			songLength: timeToSeconds('3:30'),
 			tags: ['rock', 'heavy metal', '80s'],
-			key: 'Ab'
+			key: 'Ab',
+            drop: -1
 		}
 	],
 	[
@@ -118,6 +146,8 @@ export const setlist = [
 			songLength: timeToSeconds('3:11'),
 			tags: ['rock', 'hair metal', '80s'],
 			key: 'Eb'
+            ,
+            drop: -1
 		}
 	],
 	[
@@ -126,7 +156,8 @@ export const setlist = [
 			artist: 'Pat Benatar',
 			songLength: timeToSeconds('3:29'),
 			tags: ['rock', 'basic', '70s'],
-			key: 'E'
+			key: 'E',
+            drop: 0
 		}
 	],
 	[
@@ -135,7 +166,8 @@ export const setlist = [
 			artist: 'Heart',
 			songLength: timeToSeconds('4:22'),
 			tags: ['rock', 'basic', '70s'],
-			key: 'E'
+			key: 'E',
+            drop: 0
 		}
 	],
 	[
@@ -144,7 +176,8 @@ export const setlist = [
 			artist: 'White Stripes',
 			songLength: timeToSeconds('3:52'),
 			tags: ['rock', 'basic', '2000s'],
-			key: 'E'
+			key: 'E',
+            drop: 0
 		}
 	],
 	[
@@ -153,7 +186,38 @@ export const setlist = [
 			artist: 'Stone Temple Pilots',
 			songLength: timeToSeconds('2:55'),
 			tags: ['rock', 'grunge', 'basic', '90s', '2000s'],
-			key: 'A#'
+			key: 'A#',
+            drop: 0
+		}
+	],
+	[
+		{
+			title: 'Paranoid',
+			artist: 'Black Sabbath',
+			songLength: timeToSeconds('2:48'),
+			tags: ['rock', 'heavy metal', '70s'],
+			key: 'E',
+            drop: 0
+		}
+	],
+	[
+		{
+			title: 'Bark at the Moon',
+			artist: 'Ozzy Osbourne',
+			songLength: timeToSeconds('4:17'),
+			tags: ['rock', 'hair metal', 'heavy metal', '80s'],
+			key: 'A',
+            drop: 0
+		}
+	],
+	[
+		{
+			title: 'Everlong',
+			artist: 'Foo Fighters',
+			songLength: timeToSeconds('4:11'),
+			tags: ['rock', 'basic', '90s'],
+			key: 'B',
+            drop: -2
 		}
 	],
 	[
@@ -162,7 +226,8 @@ export const setlist = [
 			artist: '',
 			songLength: timeToSeconds('0:00'),
 			tags: [],
-			key: ''
+			key: '',
+            drop: 0
 		}
 	],
 	[
@@ -171,7 +236,8 @@ export const setlist = [
 			artist: '',
 			songLength: timeToSeconds('0:00'),
 			tags: [],
-			key: ''
+			key: '',
+            drop: 0
 		}
 	],
 	[
@@ -180,7 +246,8 @@ export const setlist = [
 			artist: '',
 			songLength: timeToSeconds('0:00'),
 			tags: [],
-			key: ''
+			key: '',
+            drop: 0
 		}
 	],
 	[
@@ -189,34 +256,8 @@ export const setlist = [
 			artist: '',
 			songLength: timeToSeconds('0:00'),
 			tags: [],
-			key: ''
-		}
-	],
-	[
-		{
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: ''
-		}
-	],
-	[
-		{
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: ''
-		}
-	],
-	[
-		{
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: ''
+			key: '',
+            drop: 0
 		}
 	]
 ];
