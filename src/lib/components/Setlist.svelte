@@ -83,6 +83,7 @@
 	}
 
 	let showSongKey = $state(true);
+	let preferBasicFirstSet = $state(true);
 	let songsLength = $state();
 	let setLength = $state(210);
 	let setNumber = $state(2);
@@ -103,28 +104,50 @@
 		while (remainingSets > 0) {
 			let setlist = [];
 			let remainingLength = minutesToSeconds(lengthPerSet);
+			let unpreferredSongs = [];
 			let unuseableSongs = [];
-			while (remainingLength > 0 && remainingSongs.length > 0) {
-				let nextSongPosition = randomIntFromInterval(0, remainingSongs.length - 1);
-				let nextSong = remainingSongs.splice(nextSongPosition, 1)[0];
-				let songLength = nextSong.reduce((a, c) => a + c.songLength, 0);
+			if (setlists.length === 0 && preferBasicFirstSet) {
+				let basicSongs = [];
+				while (remainingSongs.length > 0) {
+					let songGroup = remainingSongs.shift();
+					let preferredSongGroup = songGroup.filter((x) => x.tags.includes('basic'));
+					let unpreferredSongGroup = songGroup.filter((x) => !x.tags.includes('basic'));
+					if (preferredSongGroup.length > 0) {
+						basicSongs.push(preferredSongGroup);
+					}
+					unpreferredSongs.push(unpreferredSongGroup);
+				}
+				remainingSongs = basicSongs;
+			}
+			while (remainingLength > 0 && (remainingSongs.length > 0 || unpreferredSongs.length > 0)) {
+				let nextSongGroupPosition = 0;
+				let nextSongGroup = {};
+				if (remainingSongs.length > 0) {
+					nextSongGroupPosition = randomIntFromInterval(0, remainingSongs.length - 1);
+					nextSongGroup = remainingSongs.splice(nextSongGroupPosition, 1)[0];
+				} else {
+					nextSongGroupPosition = randomIntFromInterval(0, unpreferredSongs.length - 1);
+					nextSongGroup = unpreferredSongs.splice(nextSongGroupPosition, 1)[0];
+				}
+				let songLength = nextSongGroup.reduce((a, c) => a + c.songLength, 0);
 				if (songLength <= remainingLength) {
-					setlist.push(nextSong);
+					setlist.push(nextSongGroup);
 					remainingLength -= songLength;
 				} else {
-					unuseableSongs.push(nextSong);
+					unuseableSongs.push(nextSongGroup);
 				}
 			}
 			if (remainingLength > 300) {
 				outOfSongs = true;
 			}
-			remainingSongs = [...remainingSongs, ...unuseableSongs];
+			remainingSongs = [...remainingSongs, ...unpreferredSongs, ...unuseableSongs];
 			setlists.push(setlist);
 			remainingSets--;
 		}
 		if (outOfSongs) {
 			alert('You do not have enough songs to fill your desired set length.');
 		}
+		setlists.push(remainingSongs);
 		finalSetlists = [];
 		for (let currentSet of setlists) {
 			let flatSet = [];
@@ -135,10 +158,14 @@
 			}
 			finalSetlists.push(flatSet);
 		}
-		finalSetlists = finalSetlists;
+		let un;
 	}
 
-	function getSetTitle(setlist, index) {
+	function getSetTitle(setlists, index) {
+		if (index === setlists.length - 1) {
+			return 'Unused Songs';
+		}
+		const setlist = setlists[index];
 		const setLength = secondsToMinutes(setlist.reduce((a, c) => a + c.songLength, 0));
 		return `Set ${index + 1} ${setLength}`;
 	}
@@ -159,13 +186,21 @@
 					<b>Group</b>
 					<ul>
 						{#each group as song}
-							<li>{song.title} {secondsToMinutes(song.songLength)} : {song.key} {#if song.drop !== 0}<b>({song.drop})</b>{/if}</li>
+							<li>
+								{song.title}
+								{secondsToMinutes(song.songLength)} : {song.key}
+								{#if song.drop !== 0}<b>({song.drop})</b>{/if}
+							</li>
 						{/each}
 					</ul>
 				</li>
 			{:else}
 				{#each group as song}
-					<li>{song.title} {secondsToMinutes(song.songLength)} : {song.key} {#if song.drop !== 0}<b>({song.drop})</b>{/if}</li>
+					<li>
+						{song.title}
+						{secondsToMinutes(song.songLength)} : {song.key}
+						{#if song.drop !== 0}<b>({song.drop})</b>{/if}
+					</li>
 				{/each}
 			{/if}
 		{/each}
@@ -226,8 +261,8 @@
 			</select>
 			<br />
 			<label>
-				<input type="checkbox" bind:checked={showSongKey} />
-				Show Song Key?
+				<input type="checkbox" bind:checked={preferBasicFirstSet} />
+				Prefer Basic Songs First Set?
 			</label>
 		</form>
 	</div>
@@ -242,8 +277,12 @@
 	</div>
 </div>
 <div id="bodyContainer">
+	<label>
+		<input type="checkbox" bind:checked={showSongKey} />
+		Show Song Key?
+	</label>
 	{#each finalSetlists as items, index}
-		<h1>{getSetTitle(items, index)}</h1>
+		<h1>{getSetTitle(finalSetlists, index)}</h1>
 		<section
 			use:dndzone={{ items, flipDurationMs }}
 			onconsider={(e) => handleDndConsider(index, e)}

@@ -222,21 +222,21 @@ export const setlist = [
 	],
 	[
 		{
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: '',
+			title: 'Creep',
+			artist: 'Radiohead',
+			songLength: timeToSeconds('3:59'),
+			tags: ['rock', 'basic', '90s'],
+			key: 'G',
             drop: 0
 		}
 	],
 	[
 		{
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: '',
+			title: 'Hit Me With Your Best Shot',
+			artist: 'Pat Benatar',
+			songLength: timeToSeconds('2:51'),
+			tags: ['rock', 'basic', '70s', '80s'],
+			key: 'E',
             drop: 0
 		}
 	],
