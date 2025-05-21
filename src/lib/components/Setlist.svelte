@@ -28,7 +28,13 @@
 
 	function secondsToMinutes(initialSeconds) {
 		const mins = Math.floor(initialSeconds / 60);
-		return mins + ':' + (initialSeconds % 60).toString().padEnd(2, '0');
+        let seconds = initialSeconds % 60;
+        if(seconds < 10){
+            seconds = seconds.toString().padStart(2, '0')
+        } else {
+            seconds = seconds.toString().padEnd(2, '0')
+        }
+		return mins + ':' + seconds;
 	}
 	function minutesToSeconds(minutes) {
 		return minutes * 60;
