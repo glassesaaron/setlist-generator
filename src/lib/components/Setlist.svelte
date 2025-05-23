@@ -352,11 +352,18 @@
 			showPrint = true;
 		}}>Print</button
 	>
-    <button
+	<button
 		id="shareButton"
 		onclick={() => {
-            saveSetlistToUrl();
-		}}>Share</button>
+			saveSetlistToUrl();
+		}}>Share</button
+	>
+	<button
+		id="resetButton"
+		onclick={() => {
+			window.location.href = window.location.origin + window.location.pathname;
+		}}>Reset</button
+	>
 </div>
 <div id="printContainer" style="display: {showPrint ? 'block' : 'none'}">
 	{#each finalSetlists as items, index}
@@ -402,7 +409,9 @@
 		border: 1px solid black;
 	}
 
-	#printButton, #shareButton {
+	#printButton,
+	#shareButton,
+	#resetButton {
 		margin: 1rem 1rem 0rem 1rem;
 		width: 20rem;
 		height: 5rem;
