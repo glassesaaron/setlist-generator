@@ -6,13 +6,13 @@ function timeToSeconds(time) {
 
 export const setlist = [
 	[
-        {
+		{
 			title: 'Helter Skelter',
 			artist: 'Motley Crue',
 			songLength: timeToSeconds('3:12'),
 			tags: ['rock', 'heavy metal', 'hair metal', '80s'],
 			key: 'A',
-            drop: 0
+			drop: 0
 		},
 		{
 			title: 'Enter Sandman',
@@ -20,7 +20,7 @@ export const setlist = [
 			songLength: timeToSeconds('5:32'),
 			tags: ['rock', 'metal', '90s'],
 			key: 'E',
-            drop: 0
+			drop: 0
 		},
 		{
 			title: 'Tom Sawyer',
@@ -28,7 +28,7 @@ export const setlist = [
 			songLength: timeToSeconds('4:37'),
 			tags: ['rock', 'heavy metal', '80s'],
 			key: 'E',
-            drop: 0
+			drop: 0
 		},
 		{
 			title: 'TNT',
@@ -36,7 +36,7 @@ export const setlist = [
 			songLength: timeToSeconds('3:35'),
 			tags: ['rock', '70s'],
 			key: 'A',
-            drop: 0
+			drop: 0
 		}
 	],
 	[
@@ -46,7 +46,7 @@ export const setlist = [
 			songLength: timeToSeconds('5:25'),
 			tags: ['rock', 'metal', '90s'],
 			key: 'D',
-            drop: -2
+			drop: -2
 		}
 	],
 	[
@@ -56,7 +56,7 @@ export const setlist = [
 			songLength: timeToSeconds('4:55'),
 			tags: ['rock', '80s'],
 			key: 'C',
-            drop: 0
+			drop: 0
 		}
 	],
 	[
@@ -66,7 +66,7 @@ export const setlist = [
 			songLength: timeToSeconds('3:02'),
 			tags: ['rock', 'pop punk', 'punk', 'basic', '90s'],
 			key: 'Eb',
-            drop: -1
+			drop: -1
 		}
 	],
 	[
@@ -76,7 +76,7 @@ export const setlist = [
 			songLength: timeToSeconds('5:02'),
 			tags: ['rock', 'grunge', 'basic', '90s'],
 			key: 'E',
-            drop: 0
+			drop: 0
 		}
 	],
 	[
@@ -86,7 +86,7 @@ export const setlist = [
 			songLength: timeToSeconds('4:09'),
 			tags: ['rock', 'basic', 'ladies night', '90s'],
 			key: 'E',
-            drop: 0
+			drop: 0
 		}
 	],
 	[
@@ -96,7 +96,7 @@ export const setlist = [
 			songLength: timeToSeconds('5:16'),
 			tags: ['rock', 'heavy metal', '80s'],
 			key: 'D',
-            drop: 0
+			drop: 0
 		}
 	],
 	[
@@ -106,7 +106,7 @@ export const setlist = [
 			songLength: timeToSeconds('3:42'),
 			tags: ['rock', '2000s'],
 			key: 'A',
-            drop: 0
+			drop: 0
 		}
 	],
 	[
@@ -116,7 +116,7 @@ export const setlist = [
 			songLength: timeToSeconds('4:44'),
 			tags: ['rock', 'hair metal', '80s'],
 			key: 'G',
-            drop: -2
+			drop: -2
 		}
 	],
 	[
@@ -126,7 +126,7 @@ export const setlist = [
 			songLength: timeToSeconds('3:29'),
 			tags: ['rock', 'rap', '80s', 'basic'],
 			key: 'Ab',
-            drop: -1
+			drop: -1
 		}
 	],
 	[
@@ -136,7 +136,7 @@ export const setlist = [
 			songLength: timeToSeconds('3:30'),
 			tags: ['rock', 'heavy metal', '80s'],
 			key: 'Ab',
-            drop: -1
+			drop: -1
 		}
 	],
 	[
@@ -145,9 +145,8 @@ export const setlist = [
 			artist: 'Poison',
 			songLength: timeToSeconds('3:11'),
 			tags: ['rock', 'hair metal', '80s'],
-			key: 'Eb'
-            ,
-            drop: -1
+			key: 'Eb',
+			drop: -1
 		}
 	],
 	[
@@ -157,7 +156,7 @@ export const setlist = [
 			songLength: timeToSeconds('3:29'),
 			tags: ['rock', 'basic', '70s'],
 			key: 'E',
-            drop: 0
+			drop: 0
 		}
 	],
 	[
@@ -167,7 +166,7 @@ export const setlist = [
 			songLength: timeToSeconds('4:22'),
 			tags: ['rock', 'basic', '70s'],
 			key: 'E',
-            drop: 0
+			drop: 0
 		}
 	],
 	[
@@ -177,7 +176,7 @@ export const setlist = [
 			songLength: timeToSeconds('3:52'),
 			tags: ['rock', 'basic', '2000s'],
 			key: 'E',
-            drop: 0
+			drop: 0
 		}
 	],
 	[
@@ -187,7 +186,7 @@ export const setlist = [
 			songLength: timeToSeconds('2:55'),
 			tags: ['rock', 'grunge', 'basic', '90s', '2000s'],
 			key: 'A#',
-            drop: 0
+			drop: 0
 		}
 	],
 	[
@@ -197,7 +196,7 @@ export const setlist = [
 			songLength: timeToSeconds('2:48'),
 			tags: ['rock', 'heavy metal', '70s'],
 			key: 'E',
-            drop: 0
+			drop: 0
 		}
 	],
 	[
@@ -207,7 +206,7 @@ export const setlist = [
 			songLength: timeToSeconds('4:17'),
 			tags: ['rock', 'hair metal', 'heavy metal', '80s'],
 			key: 'A',
-            drop: 0
+			drop: 0
 		}
 	],
 	[
@@ -217,7 +216,7 @@ export const setlist = [
 			songLength: timeToSeconds('4:11'),
 			tags: ['rock', 'basic', '90s'],
 			key: 'B',
-            drop: -2
+			drop: -2
 		}
 	],
 	[
@@ -227,7 +226,7 @@ export const setlist = [
 			songLength: timeToSeconds('3:59'),
 			tags: ['rock', 'basic', '90s'],
 			key: 'G',
-            drop: 0
+			drop: 0
 		}
 	],
 	[
@@ -237,7 +236,27 @@ export const setlist = [
 			songLength: timeToSeconds('2:51'),
 			tags: ['rock', 'basic', '70s', '80s'],
 			key: 'E',
-            drop: 0
+			drop: 0
+		}
+	],
+	[
+		{
+			title: 'Dr. Feelgood',
+			artist: 'Motley Crue',
+			songLength: timeToSeconds('4:51'),
+			tags: ['rock', 'hair metal', 'heavy metal', '80s'],
+			key: 'D',
+			drop: -2
+		}
+	],
+	[
+		{
+			title: 'Zombie',
+			artist: 'The Cranberries',
+			songLength: timeToSeconds('5:06'),
+			tags: ['rock', 'basic', '90s'],
+			key: 'G',
+			drop: 0
 		}
 	],
 	[
@@ -247,7 +266,7 @@ export const setlist = [
 			songLength: timeToSeconds('0:00'),
 			tags: [],
 			key: '',
-            drop: 0
+			drop: 0
 		}
 	],
 	[
@@ -257,7 +276,77 @@ export const setlist = [
 			songLength: timeToSeconds('0:00'),
 			tags: [],
 			key: '',
-            drop: 0
+			drop: 0
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: '',
+			drop: 0
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: '',
+			drop: 0
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: '',
+			drop: 0
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: '',
+			drop: 0
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: '',
+			drop: 0
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: '',
+			drop: 0
+		}
+	],
+	[
+		{
+			title: '',
+			artist: '',
+			songLength: timeToSeconds('0:00'),
+			tags: [],
+			key: '',
+			drop: 0
 		}
 	]
 ];

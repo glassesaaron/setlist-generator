@@ -28,12 +28,12 @@
 
 	function secondsToMinutes(initialSeconds) {
 		const mins = Math.floor(initialSeconds / 60);
-        let seconds = initialSeconds % 60;
-        if(seconds < 10){
-            seconds = seconds.toString().padStart(2, '0')
-        } else {
-            seconds = seconds.toString().padEnd(2, '0')
-        }
+		let seconds = initialSeconds % 60;
+		if (seconds < 10) {
+			seconds = seconds.toString().padStart(2, '0');
+		} else {
+			seconds = seconds.toString().padEnd(2, '0');
+		}
 		return mins + ':' + seconds;
 	}
 	function minutesToSeconds(minutes) {
@@ -96,6 +96,7 @@
 	let setBreakLength = $state(30);
 	let setBuffer = $state(5);
 	let finalSetlists = $state([]);
+	let showPrint = $state(false);
 
 	$effect(() => {
 		songsLength = Math.floor(setLength - (setNumber - 1) * setBreakLength - setNumber * setBuffer);
@@ -167,17 +168,17 @@
 		let un;
 	}
 
-	function getSetTitle(setlists, index) {
+	function getSetTitle(setlists, index, showSetLength) {
 		if (index === setlists.length - 1) {
 			return 'Unused Songs';
 		}
 		const setlist = setlists[index];
 		const setLength = secondsToMinutes(setlist.reduce((a, c) => a + c.songLength, 0));
-		return `Set ${index + 1} ${setLength}`;
+		return `Set ${index + 1} ${showSetLength ? setLength : ''}`;
 	}
 </script>
 
-<div id="headerContainer">
+<div id="headerContainer" style="display: {finalSetlists.length > 0 || showPrint ? 'none' : 'flex'}">
 	<select id="tags" onchange={(x) => changeTag(x)} multiple>
 		{#each tags as tag}
 			<option value={tag}>
@@ -211,7 +212,7 @@
 			{/if}
 		{/each}
 	</ul>
-	<div id="timeContainer">
+	<div id="optionsContainer">
 		<form>
 			<label for="setLength">Total Set Time</label>
 			<select name="setLength" bind:value={setLength}>
@@ -282,13 +283,13 @@
 		<button id="buildSetButton" onclick={buildSetlist}>Build Set(s)</button>
 	</div>
 </div>
-<div id="bodyContainer">
+<div id="bodyContainer" style="display: {finalSetlists.length === 0 || showPrint ? 'none' : 'block'}">
 	<label>
 		<input type="checkbox" bind:checked={showSongKey} />
 		Show Song Key?
 	</label>
 	{#each finalSetlists as items, index}
-		<h1>{getSetTitle(finalSetlists, index)}</h1>
+		<h1>{getSetTitle(finalSetlists, index, true)}</h1>
 		<section
 			use:dndzone={{ items, flipDurationMs }}
 			onconsider={(e) => handleDndConsider(index, e)}
@@ -302,19 +303,37 @@
 			{/each}
 		</section>
 	{/each}
+	<br />
+	<button
+		id="printButton"
+		onclick={() => {
+			showPrint = true;
+		}}>Print</button
+	>
+</div>
+<div id="printContainer" style="display: {showPrint ? 'block' : 'none'}">
+	{#each finalSetlists as items, index}
+    {#if index !== finalSetlists.length - 1}
+		<h1>{getSetTitle(finalSetlists, index, false)}</h1>
+		{#each items as song (song.id)}
+			<div>
+				{song.title}
+				{#if song.drop !== 0}<b>({song.drop})</b>{/if}
+			</div>
+		{/each}
+		<div class="page-break"></div>
+        {/if}
+	{/each}
 </div>
 
 <style>
 	#headerContainer {
 		display: flex;
 		gap: 1rem;
-		height: 60%;
-		min-height: 35rem;
-		padding-bottom: 1rem;
-		overflow-y: scroll;
+        height: 100%;
 	}
 
-	#timeContainer {
+	#optionsContainer {
 		padding-top: 1rem;
 	}
 
@@ -327,14 +346,38 @@
 	}
 
 	#bodyContainer {
-		height: 100%;
-		border-top: 1px solid #000000;
 		padding: 1rem 2rem;
 	}
 
-	section {
+	#bodyContainer section {
 		width: 100%;
 		padding: 0.3em;
 		border: 1px solid black;
+	}
+
+	#printButton {
+		margin: 1rem 1rem 0rem 1rem;
+		width: 20rem;
+		height: 5rem;
+		cursor: pointer;
+		font-size: 2rem;
+	}
+
+	#printContainer {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+        padding-left: 2rem;
+        font-size: 35px;
+	}
+
+    #printContainer h1 {
+        margin-top: 2rem;
+    }
+
+	@media print {
+		.page-break {
+			break-after: page;
+		}
 	}
 </style>
