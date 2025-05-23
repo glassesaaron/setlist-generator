@@ -14,16 +14,9 @@
 	}
 
 	// massage data, remove empty songs
-	// add generic ids
 	const fullSetlist = [];
-	let id = 1;
 	for (let group of rawSetlist) {
-		let newGroup = group.filter((x) => x.songLength > 0);
-		for (let song of newGroup) {
-			song.id = id;
-			id++;
-		}
-		fullSetlist.push(newGroup);
+		fullSetlist.push(group.filter((x) => x.songLength > 0));
 	}
 
 	function secondsToMinutes(initialSeconds) {
@@ -165,7 +158,6 @@
 			}
 			finalSetlists.push(flatSet);
 		}
-		let un;
 	}
 
 	function getSetTitle(setlists, index, showSetLength) {
@@ -176,9 +168,56 @@
 		const setLength = secondsToMinutes(setlist.reduce((a, c) => a + c.songLength, 0));
 		return `Set ${index + 1} ${showSetLength ? setLength : ''}`;
 	}
+
+	// save a setlist to a url
+	function saveSetlistToUrl() {
+		let compressedSetlists = [];
+		for (let setlist of finalSetlists) {
+			let compressedSetlist = [];
+			for (let song of setlist) {
+				compressedSetlist.push(song.id);
+			}
+			compressedSetlists.push(compressedSetlist);
+		}
+		const urlParams = new URLSearchParams(window.location.search);
+		urlParams.set('setlist', JSON.stringify(compressedSetlists));
+		window.location.search = urlParams;
+	}
+
+	// load a setlist from url
+	const urlParams = new URLSearchParams(window.location.search);
+	if (urlParams.has('setlist')) {
+		const existingSetlists = JSON.parse(urlParams.get('setlist'));
+		finalSetlists = [];
+		for (let x in existingSetlists) {
+			let existingSetlist = existingSetlists[x];
+			let currentSetlist = [];
+			// TODO: n^2, refactor
+			for (let y in existingSetlist) {
+				let foundSong = {};
+				for (let fullGroup of fullSetlist) {
+					for (let fullSong of fullGroup) {
+						if (fullSong.id === existingSetlist[y]) {
+							foundSong = fullSong;
+							break;
+						}
+					}
+					if (foundSong.id) {
+						break;
+					}
+				}
+				currentSetlist.push(foundSong);
+			}
+			// svelte-ignore state_referenced_locally
+			finalSetlists.push(currentSetlist);
+		}
+	}
 </script>
 
-<div id="headerContainer" style="display: {finalSetlists.length > 0 || showPrint ? 'none' : 'flex'}">
+<div
+	id="headerContainer"
+	style="display: {finalSetlists.length > 0 || showPrint ? 'none' : 'flex'}"
+>
 	<select id="tags" onchange={(x) => changeTag(x)} multiple>
 		{#each tags as tag}
 			<option value={tag}>
@@ -283,7 +322,10 @@
 		<button id="buildSetButton" onclick={buildSetlist}>Build Set(s)</button>
 	</div>
 </div>
-<div id="bodyContainer" style="display: {finalSetlists.length === 0 || showPrint ? 'none' : 'block'}">
+<div
+	id="bodyContainer"
+	style="display: {finalSetlists.length === 0 || showPrint ? 'none' : 'block'}"
+>
 	<label>
 		<input type="checkbox" bind:checked={showSongKey} />
 		Show Song Key?
@@ -310,19 +352,24 @@
 			showPrint = true;
 		}}>Print</button
 	>
+    <button
+		id="shareButton"
+		onclick={() => {
+            saveSetlistToUrl();
+		}}>Share</button>
 </div>
 <div id="printContainer" style="display: {showPrint ? 'block' : 'none'}">
 	{#each finalSetlists as items, index}
-    {#if index !== finalSetlists.length - 1}
-		<h1>{getSetTitle(finalSetlists, index, false)}</h1>
-		{#each items as song (song.id)}
-			<div>
-				{song.title}
-				{#if song.drop !== 0}<b>({song.drop})</b>{/if}
-			</div>
-		{/each}
-		<div class="page-break"></div>
-        {/if}
+		{#if index !== finalSetlists.length - 1}
+			<h1>{getSetTitle(finalSetlists, index, false)}</h1>
+			{#each items as song (song.id)}
+				<div>
+					{song.title}
+					{#if song.drop !== 0}<b>({song.drop})</b>{/if}
+				</div>
+			{/each}
+			<div class="page-break"></div>
+		{/if}
 	{/each}
 </div>
 
@@ -330,7 +377,7 @@
 	#headerContainer {
 		display: flex;
 		gap: 1rem;
-        height: 100%;
+		height: 100%;
 	}
 
 	#optionsContainer {
@@ -355,7 +402,7 @@
 		border: 1px solid black;
 	}
 
-	#printButton {
+	#printButton, #shareButton {
 		margin: 1rem 1rem 0rem 1rem;
 		width: 20rem;
 		height: 5rem;
@@ -367,13 +414,13 @@
 		position: absolute;
 		top: 0px;
 		left: 0px;
-        padding-left: 2rem;
-        font-size: 35px;
+		padding-left: 2rem;
+		font-size: 35px;
 	}
 
-    #printContainer h1 {
-        margin-top: 2rem;
-    }
+	#printContainer h1 {
+		margin-top: 2rem;
+	}
 
 	@media print {
 		.page-break {
