@@ -7,7 +7,7 @@ function timeToSeconds(time) {
 export const setlist = [
 	[
 		{
-            id: 0,
+			id: 0,
 			title: 'Helter Skelter',
 			artist: 'Motley Crue',
 			songLength: timeToSeconds('3:12'),
@@ -16,7 +16,7 @@ export const setlist = [
 			drop: 0
 		},
 		{
-            id: 1,
+			id: 1,
 			title: 'Enter Sandman',
 			artist: 'Metallica',
 			songLength: timeToSeconds('5:32'),
@@ -25,7 +25,7 @@ export const setlist = [
 			drop: 0
 		},
 		{
-            id: 2,
+			id: 2,
 			title: 'Tom Sawyer',
 			artist: 'Rush',
 			songLength: timeToSeconds('4:37'),
@@ -34,7 +34,7 @@ export const setlist = [
 			drop: 0
 		},
 		{
-            id: 3,
+			id: 3,
 			title: 'TNT',
 			artist: 'AC/DC',
 			songLength: timeToSeconds('3:35'),
@@ -45,7 +45,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 4,
+			id: 4,
 			title: 'Sad But True',
 			artist: 'Metallica',
 			songLength: timeToSeconds('5:25'),
@@ -56,7 +56,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 5,
+			id: 5,
 			title: 'Cult of Personality',
 			artist: 'Living Colour',
 			songLength: timeToSeconds('4:55'),
@@ -67,7 +67,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 6,
+			id: 6,
 			title: 'Basket Case',
 			artist: 'Green Day',
 			songLength: timeToSeconds('3:02'),
@@ -78,7 +78,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 7,
+			id: 7,
 			title: 'Smells Like Teen Spirit',
 			artist: 'Nirvana',
 			songLength: timeToSeconds('5:02'),
@@ -89,7 +89,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 8,
+			id: 8,
 			title: 'You Oughta Know',
 			artist: 'Alanis Morissette',
 			songLength: timeToSeconds('4:09'),
@@ -100,7 +100,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 9,
+			id: 9,
 			title: 'Metal Health (Bang Your Head)',
 			artist: 'Quiet Riot',
 			songLength: timeToSeconds('5:16'),
@@ -111,7 +111,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 10,
+			id: 10,
 			title: 'Cochise',
 			artist: 'Audioslave',
 			songLength: timeToSeconds('3:42'),
@@ -122,7 +122,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 11,
+			id: 11,
 			title: 'Kickstart My Heart',
 			artist: 'Motley Crue',
 			songLength: timeToSeconds('4:44'),
@@ -133,7 +133,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 12,
+			id: 12,
 			title: 'Fight For Your Right',
 			artist: 'Beastie Boys',
 			songLength: timeToSeconds('3:29'),
@@ -144,7 +144,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 13,
+			id: 13,
 			title: 'Panama',
 			artist: 'Van Halen',
 			songLength: timeToSeconds('3:30'),
@@ -155,7 +155,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 14,
+			id: 14,
 			title: 'Look What The Cat Dragged In',
 			artist: 'Poison',
 			songLength: timeToSeconds('3:11'),
@@ -166,7 +166,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 15,
+			id: 15,
 			title: 'Heartbreaker',
 			artist: 'Pat Benatar',
 			songLength: timeToSeconds('3:29'),
@@ -177,7 +177,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 16,
+			id: 16,
 			title: 'Baracuda',
 			artist: 'Heart',
 			songLength: timeToSeconds('4:22'),
@@ -188,7 +188,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 17,
+			id: 17,
 			title: 'Seven Nation Army',
 			artist: 'White Stripes',
 			songLength: timeToSeconds('3:52'),
@@ -199,7 +199,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 18,
+			id: 18,
 			title: 'Vasoline',
 			artist: 'Stone Temple Pilots',
 			songLength: timeToSeconds('2:55'),
@@ -210,7 +210,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 19,
+			id: 19,
 			title: 'Paranoid',
 			artist: 'Black Sabbath',
 			songLength: timeToSeconds('2:48'),
@@ -221,7 +221,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 20,
+			id: 20,
 			title: 'Bark at the Moon',
 			artist: 'Ozzy Osbourne',
 			songLength: timeToSeconds('4:17'),
@@ -232,7 +232,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 21,
+			id: 21,
 			title: 'Everlong',
 			artist: 'Foo Fighters',
 			songLength: timeToSeconds('4:11'),
@@ -243,7 +243,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 22,
+			id: 22,
 			title: 'Creep',
 			artist: 'Radiohead',
 			songLength: timeToSeconds('3:59'),
@@ -254,7 +254,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 23,
+			id: 23,
 			title: 'Hit Me With Your Best Shot',
 			artist: 'Pat Benatar',
 			songLength: timeToSeconds('2:51'),
@@ -265,7 +265,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 24,
+			id: 24,
 			title: 'Dr. Feelgood',
 			artist: 'Motley Crue',
 			songLength: timeToSeconds('4:51'),
@@ -276,7 +276,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: 25,
+			id: 25,
 			title: 'Zombie',
 			artist: 'The Cranberries',
 			songLength: timeToSeconds('5:06'),
@@ -287,7 +287,40 @@ export const setlist = [
 	],
 	[
 		{
-            id: -1,
+			id: 26,
+			title: 'Rebel Yell',
+			artist: 'Billy Idol',
+			songLength: timeToSeconds('4:49'),
+			tags: ['rock', 'basic', '80s'],
+			key: 'E',
+			drop: 0
+		}
+	],
+	[
+		{
+			id: 27,
+			title: 'Mother',
+			artist: 'Danzig',
+			songLength: timeToSeconds('3:25'),
+			tags: ['rock', '80s'],
+			key: 'B',
+			drop: 0
+		}
+	],
+	[
+		{
+			id: 28,
+			title: 'Wicked Game',
+			artist: 'HIM',
+			songLength: timeToSeconds('3:54'),
+			tags: ['rock', 'basic', '80s'],
+			key: 'A',
+			drop: 0
+		}
+	],
+	[
+		{
+			id: -1,
 			title: '',
 			artist: '',
 			songLength: timeToSeconds('0:00'),
@@ -298,7 +331,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: -1,
+			id: -1,
 			title: '',
 			artist: '',
 			songLength: timeToSeconds('0:00'),
@@ -309,7 +342,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: -1,
+			id: -1,
 			title: '',
 			artist: '',
 			songLength: timeToSeconds('0:00'),
@@ -320,7 +353,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: -1,
+			id: -1,
 			title: '',
 			artist: '',
 			songLength: timeToSeconds('0:00'),
@@ -331,7 +364,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: -1,
+			id: -1,
 			title: '',
 			artist: '',
 			songLength: timeToSeconds('0:00'),
@@ -342,40 +375,7 @@ export const setlist = [
 	],
 	[
 		{
-            id: -1,
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: '',
-			drop: 0
-		}
-	],
-	[
-		{
-            id: -1,
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: '',
-			drop: 0
-		}
-	],
-	[
-		{
-            id: -1,
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: '',
-			drop: 0
-		}
-	],
-	[
-		{
-            id: -1,
+			id: -1,
 			title: '',
 			artist: '',
 			songLength: timeToSeconds('0:00'),
