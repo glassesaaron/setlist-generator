@@ -320,34 +320,34 @@ export const setlist = [
 	],
 	[
 		{
-			id: -1,
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: '',
+			id: 29,
+			title: 'Got Me Under Pressure',
+			artist: 'ZZ Top',
+			songLength: timeToSeconds('4:03'),
+			tags: ['rock', '80s'],
+			key: 'D',
 			drop: 0
 		}
 	],
 	[
 		{
-			id: -1,
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: '',
+			id: 30,
+			title: 'Man in the Box',
+			artist: 'Alice in Chains',
+			songLength: timeToSeconds('4:45'),
+			tags: ['rock', 'basic', 'grunge', '90s'],
+			key: 'Ab',
 			drop: 0
 		}
 	],
 	[
 		{
-			id: -1,
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: '',
+			id: 31,
+			title: 'I Wanna Rock',
+			artist: 'Twisted Sister',
+			songLength: timeToSeconds('3:00'),
+			tags: ['rock', 'basic', '80s'],
+			key: 'D',
 			drop: 0
 		}
 	],
