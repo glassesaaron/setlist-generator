@@ -353,34 +353,34 @@ export const setlist = [
 	],
 	[
 		{
-			id: -1,
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: '',
+			id: 32,
+			title: 'Killing In The Name',
+			artist: 'Rage Against The Machine',
+			songLength: timeToSeconds('5:14'),
+			tags: ['rock', 'basic', '90s', '2000s'],
+			key: 'G',
+			drop: -2
+		}
+	],
+	[
+		{
+			id: 33,
+			title: 'Bad Case Of Loving You',
+			artist: 'Robert Palmer',
+			songLength: timeToSeconds('3:16'),
+			tags: ['rock', 'basic', '70s', '80s'],
+			key: 'E',
 			drop: 0
 		}
 	],
 	[
 		{
-			id: -1,
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: '',
-			drop: 0
-		}
-	],
-	[
-		{
-			id: -1,
-			title: '',
-			artist: '',
-			songLength: timeToSeconds('0:00'),
-			tags: [],
-			key: '',
+			id: 34,
+			title: "Thunder Kiss '65",
+			artist: 'White Zombie',
+			songLength: timeToSeconds('3:54'),
+			tags: ['rock', 'metal', '90s'],
+			key: 'A',
 			drop: 0
 		}
 	]
