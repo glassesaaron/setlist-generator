@@ -437,7 +437,7 @@ export const setlist = [
 			songLength: timeToSeconds('3:28'),
 			tags: ['rock', 'basic', '70s'],
 			key: 'Gb',
-			drop: 0
+			drop: -1
 		}
 	],
 	[
