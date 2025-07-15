@@ -1,8 +1,7 @@
 <script>
 	import { flip } from 'svelte/animate';
 	import { dndzone } from 'svelte-dnd-action';
-	import { onMount } from 'svelte';
-	import { setlist as rawSetlist, setlist } from '../data/setlist.js';
+	import { setlist as rawSetlist } from '../data/setlist.js';
 
 	// drag and drop
 	const flipDurationMs = 300;

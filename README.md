@@ -17,7 +17,7 @@ npm run dev -- --open
 
 Lint
 
-`npm run format`
+`npm run lint`
 
 Format
 
